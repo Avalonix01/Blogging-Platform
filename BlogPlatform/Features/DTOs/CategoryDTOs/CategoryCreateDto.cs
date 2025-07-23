@@ -1,6 +1,4 @@
 ﻿namespace BlogPlatform.Features.DTOs.CategoryDTOs;
 
-public class CategoryCreateDto
-{
-    
-}
+public record CategoryCreateDto
+    (string Name);

@@ -4,7 +4,7 @@ namespace BlogPlatform.Entities;
 
 public class Blog
 {
-    public Guid Id { get; private set; } = Guid.CreateVersion7();
+    public Guid Id { get; private set; }
     
     [MaxLength(100)]
     public string Title { get; private set; }
@@ -15,10 +15,13 @@ public class Blog
 
     [MaxLength(50)]
     public string AuthorId { get; set; }
+
+    public Guid CategoryId { get; private set; }
+    public Category? Category { get; private set; } 
     
     public Blog() { }
 
-    public Blog(string title, string content, string authorId)
+    public Blog(string title, string content)
     {
         Id = Guid.CreateVersion7();
         Title = title;

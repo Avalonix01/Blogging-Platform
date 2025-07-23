@@ -8,6 +8,8 @@ public class Comment
     public DateTime CreatedAt { get; private set; }
     public Guid BlogId { get; private set; }
     public Blog Blog { get; private set; }
+    
+    [MaxLength(200)]
     public string AuthorId { get; private set; }
     
     [MaxLength(150)]

@@ -1,4 +1,4 @@
-﻿using BlogPlatform.Features.DTOs.BlogDTOs;
+﻿using Microsoft.EntityFrameworkCore;
 using BlogPlatform.Entities;
 using BlogPlatform.Data;
 using MediatR;
@@ -8,15 +8,19 @@ namespace BlogPlatform.Features.Blogs.Create;
 
 public class CreateBlogHandler(BlogDbContext context)
     : IRequestHandler<CreateBlogCommand>
-{
+{ 
     public async Task Handle(CreateBlogCommand request, CancellationToken cancellationToken)
     {
-        var blogDto = new BlogCreateDto(request.Title, request.Content);
-        var blog = blogDto.Adapt<Blog>();
-
-        blog.AuthorId = request.AuthorId;
-
-        await context.Blogs.AddAsync(blog, cancellationToken);
-        await context.SaveChangesAsync(cancellationToken);
+         var blog = request.Adapt<Blog>();
+         blog.AuthorId = request.AuthorId;
+         
+         var categoryExists = await context.Categories
+             .AnyAsync(c => c.Id == request.CategoryId, cancellationToken);
+         
+         if (!categoryExists)
+             throw new KeyNotFoundException("Category not found.");
+        
+         await context.Blogs.AddAsync(blog, cancellationToken);
+         await context.SaveChangesAsync(cancellationToken);
     }
 }

@@ -12,7 +12,7 @@ public class DeleteCommentHandler(BlogDbContext context)
     {
         var comment = await context.Comments
             .FirstOrDefaultAsync(c => c.Id == request.CommentId, cancellationToken);
-        
+
         if (comment is null)
             throw new NullReferenceException("Comment not found");
         

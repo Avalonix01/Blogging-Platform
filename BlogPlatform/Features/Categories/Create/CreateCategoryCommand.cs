@@ -1,6 +1,7 @@
-﻿namespace BlogPlatform.Features.Categories.Create;
+﻿using MediatR;
 
-public class CreateCategoryCommand
+namespace BlogPlatform.Features.Categories.Create
 {
-    
+    public record CreateCategoryCommand
+        (string Name) : IRequest<Guid>;
 }
