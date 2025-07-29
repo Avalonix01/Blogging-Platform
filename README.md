@@ -16,4 +16,4 @@ A lightweight ASP.NET Core Web API for blogging, built with **Vertical Slice** f
 6. Run the API: `dotnet run`
 
 ## Project Purpose
-This API demonstrates my skills in designing maintainable .NET applications with **Vertical Slice**, efficient database management using **Entity Framework Core** with *MSSQL**,
+This API demonstrates my skills in designing maintainable .NET applications with **Vertical Slice**, efficient database management using **Entity Framework Core** with **MSSQL**
