@@ -14,7 +14,7 @@ public sealed class GetBlogsHandler(BlogDbContext context)
         var blogs = await context.Blogs
             .AsNoTracking()
             .ToListAsync(cancellationToken);
-
+        
         return blogs.Adapt<List<BlogDto>>();
     }
 }

@@ -8,11 +8,11 @@ public sealed class CreateBlogValidator : AbstractValidator<BlogCreateDto>
     public CreateBlogValidator()
     {
         RuleFor(b => b.Title)
-            .NotEmpty().NotNull()
+            .NotEmpty().NotNull().WithMessage("Title is required")
             .Length(3, 50); 
 
         RuleFor(b => b.Content)
-            .NotEmpty().NotNull()
+            .NotEmpty().NotNull().WithMessage("Content is required")
             .Length(3, 500);
     }
 }

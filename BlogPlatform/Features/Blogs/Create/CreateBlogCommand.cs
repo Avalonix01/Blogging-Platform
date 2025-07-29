@@ -4,5 +4,5 @@ namespace BlogPlatform.Features.Blogs.Create
 {
     public record CreateBlogCommand
         (string AuthorId, string Title,
-            string Content, Guid CategoryId) : IRequest;
+            string Content, string CategoryName, Guid CategoryId) : IRequest;
 }

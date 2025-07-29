@@ -16,9 +16,6 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
             .IsRequired()
             .HasMaxLength(130);
 
-        builder.Property(c => c.CreatedAt)
-            .IsRequired();
-
         builder.HasOne(c => c.Blog)
             .WithMany(b => b.Comments)
             .HasForeignKey(c => c.BlogId)

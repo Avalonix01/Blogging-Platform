@@ -2,5 +2,5 @@
 {
     public record BlogDto
         (Guid Id, string Title,
-            string Content, Guid CategoryId);
+            string Content, string CategoryName, Guid CategoryId);
 }

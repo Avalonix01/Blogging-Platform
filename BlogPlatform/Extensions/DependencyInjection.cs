@@ -1,4 +1,6 @@
-﻿using BlogPlatform.Features.DTOs.CommentDTOs;
+﻿using BlogPlatform.Features.Categories.Create;
+using BlogPlatform.Features.DTOs.CategoryDTOs;
+using BlogPlatform.Features.DTOs.CommentDTOs;
 using BlogPlatform.Features.Comments.Create;
 using BlogPlatform.Features.DTOs.BlogDTOs;
 using BlogPlatform.Features.Blogs.Create;
@@ -31,6 +33,7 @@ public static class DependencyInjection
 
         services.AddScoped<IValidator<BlogCreateDto>, CreateBlogValidator>();
         services.AddScoped<IValidator<CommentCreateDto>, CreateCommentValidator>();
+        services.AddScoped<IValidator<CategoryCreateDto>, CreateCategoryValidator>();
         
         services.AddHttpContextAccessor();
         
